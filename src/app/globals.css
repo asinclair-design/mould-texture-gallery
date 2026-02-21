@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #07080b;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel2: rgba(255, 255, 255, 0.09);
+  --stroke: rgba(255, 255, 255, 0.12);
+  --stroke2: rgba(255, 255, 255, 0.2);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.62);
+  --faint: rgba(255, 255, 255, 0.38);
+  --accent: #8cf3ff;
+  --accent2: #a7ff7a;
+  --danger: #ff566b;
+  --shadow: rgba(0, 0, 0, 0.55);
+  --ring: rgba(140, 243, 255, 0.35);
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --font-sans: var(--font-body);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(1200px 700px at 70% -10%, rgba(140, 243, 255, 0.14), transparent 55%),
+    radial-gradient(900px 600px at 10% 0%, rgba(167, 255, 122, 0.1), transparent 58%),
+    radial-gradient(1200px 900px at 55% 120%, rgba(255, 86, 107, 0.08), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+/* Subtle film grain */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--noise);
+  mix-blend-mode: overlay;
+  opacity: 0.18;
+}
+
+::selection {
+  background: rgba(140, 243, 255, 0.22);
+}
+
+/* Scrollbars (WebKit) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
