@@ -19,9 +19,10 @@
 
 /* Alternate light theme inspired by rpgrouplimited.com */
 html[data-theme="rpg"] {
-  --bg: #f7fafc;
-  --panel: rgba(255, 255, 255, 0.86);
-  --panel2: rgba(255, 255, 255, 0.92);
+  /* Slightly warmer/greyer than pure white to match the site feel */
+  --bg: #f1f5f9;
+  --panel: rgba(255, 255, 255, 0.92);
+  --panel2: rgba(255, 255, 255, 0.98);
   --stroke: rgba(15, 23, 42, 0.12);
   --stroke2: rgba(15, 23, 42, 0.18);
   --text: rgba(2, 6, 23, 0.92);

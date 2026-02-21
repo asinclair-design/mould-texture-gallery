@@ -15,12 +15,20 @@ export function LeadMagnetCTA() {
 
   const validEmail = useMemo(() => {
     const e = email.trim();
-    return e.includes("@");
+    return e.includes("@") && e.includes(".");
   }, [email]);
 
+  const validName = useMemo(() => {
+    return name.trim().length > 1;
+  }, [name]);
+
   async function submit() {
+    if (!validName) {
+      setStatus({ kind: "err", message: "Please enter your name." });
+      return;
+    }
     if (!validEmail) {
-      setStatus({ kind: "err", message: "Please enter a valid email." });
+      setStatus({ kind: "err", message: "Please enter a valid work email." });
       return;
     }
 
@@ -32,7 +40,7 @@ export function LeadMagnetCTA() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           email: email.trim(),
-          name: name.trim() || undefined,
+          name: name.trim(),
           source: "mould-texture-gallery",
           intent: "ebook",
         }),
@@ -80,7 +88,7 @@ export function LeadMagnetCTA() {
 
         <div className="relative grid gap-6 p-5 md:grid-cols-[1.25fr_1fr] md:p-6">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--stroke)] bg-black/15 px-3 py-1 text-xs text-[color:var(--muted)]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--stroke)] bg-[var(--panel2)] px-3 py-1 text-xs text-[color:var(--muted)]">
               Lead magnet
               <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--accent)]" />
               Free PDF
@@ -111,7 +119,7 @@ export function LeadMagnetCTA() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-[var(--stroke)] bg-black/15 p-4 md:p-5">
+          <div className="rounded-2xl border border-[var(--stroke)] bg-[var(--panel2)] p-4 md:p-5">
             <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--faint)]">
               Send me the guide
             </div>
@@ -120,9 +128,10 @@ export function LeadMagnetCTA() {
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Name (optional)"
+                placeholder="Name"
+                required
                 className={cx(
-                  "w-full rounded-xl border border-[var(--stroke)] bg-black/25 px-3 py-2 text-sm text-[color:var(--text)]",
+                  "w-full rounded-xl border border-[var(--stroke)] bg-[var(--panel)] px-3 py-2 text-sm text-[color:var(--text)]",
                   "placeholder:text-[color:var(--faint)]",
                   "focus:outline-none focus:ring-2 focus:ring-[var(--ring)]"
                 )}
@@ -132,8 +141,9 @@ export function LeadMagnetCTA() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Work email"
                 inputMode="email"
+                required
                 className={cx(
-                  "w-full rounded-xl border border-[var(--stroke)] bg-black/25 px-3 py-2 text-sm text-[color:var(--text)]",
+                  "w-full rounded-xl border border-[var(--stroke)] bg-[var(--panel)] px-3 py-2 text-sm text-[color:var(--text)]",
                   "placeholder:text-[color:var(--faint)]",
                   "focus:outline-none focus:ring-2 focus:ring-[var(--ring)]"
                 )}
@@ -142,7 +152,7 @@ export function LeadMagnetCTA() {
               <button
                 type="button"
                 onClick={submit}
-                disabled={status.kind === "sending"}
+                disabled={status.kind === "sending" || !validEmail || !validName}
                 className={cx(
                   "mt-1 inline-flex items-center justify-center rounded-xl border border-[var(--stroke)]",
                   "bg-[color:var(--accent)]/15 px-3 py-2 text-sm font-semibold text-[color:var(--text)]",

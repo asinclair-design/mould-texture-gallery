@@ -89,7 +89,7 @@ export function Gallery() {
                   onChange={(e) => setQ(e.target.value)}
                   placeholder="e.g. JY22040"
                   className={cx(
-                    "w-full rounded-xl border border-[var(--stroke)] bg-black/15 px-3 py-2 text-sm text-[color:var(--text)]",
+                    "w-full rounded-xl border border-[var(--stroke)] bg-[var(--panel2)] px-3 py-2 text-sm text-[color:var(--text)]",
                     "placeholder:text-[color:var(--faint)]",
                     "focus:outline-none focus:ring-2 focus:ring-[var(--ring)]"
                   )}
@@ -112,8 +112,8 @@ export function Gallery() {
                     className={cx(
                       "rounded-full border px-3 py-1 text-xs transition",
                       series === s
-                        ? "border-white/20 bg-white/10 text-white"
-                        : "border-white/10 bg-white/5 text-white/70 hover:bg-white/10 hover:text-white"
+                        ? "border-[var(--stroke2)] bg-black/10 text-[color:var(--text)]"
+                        : "border-[var(--stroke)] bg-[var(--panel)] text-[color:var(--muted)] hover:bg-[var(--panel2)] hover:text-[color:var(--text)]"
                     )}
                   >
                     {s === "All" ? "All series" : seriesLabel(s)}
@@ -157,7 +157,7 @@ export function Gallery() {
             © {new Date().getFullYear()} RP Group Limited. Texture IDs shown are
             filename-based.
           </div>
-          <div className="text-white/45">
+          <div className="text-[color:var(--faint)]">
             Built for speed: thumbnails + previews + on-demand zoom.
           </div>
         </div>
