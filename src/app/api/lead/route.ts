@@ -8,6 +8,13 @@ export async function POST(req: Request) {
   const email = (body?.email ?? "").trim();
   const name = (body?.name ?? "").trim();
 
+  if (!name || name.length < 2) {
+    return NextResponse.json(
+      { ok: false, message: "Name is required." },
+      { status: 400 }
+    );
+  }
+
   if (!email || !email.includes("@")) {
     return NextResponse.json(
       { ok: false, message: "Invalid email." },
@@ -33,7 +40,7 @@ export async function POST(req: Request) {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
         email,
-        name: name || undefined,
+        name,
         source: body?.source ?? "mould-texture-gallery",
         intent: body?.intent ?? "newsletter",
         ts: new Date().toISOString(),

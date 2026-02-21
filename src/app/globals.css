@@ -19,8 +19,8 @@
 
 /* Alternate light theme inspired by rpgrouplimited.com */
 html[data-theme="rpg"] {
-  /* Slightly warmer/greyer than pure white to match the site feel */
-  --bg: #f1f5f9;
+  /* Match the company site baseline: clean white */
+  --bg: #ffffff;
   --panel: rgba(255, 255, 255, 0.92);
   --panel2: rgba(255, 255, 255, 0.98);
   --stroke: rgba(15, 23, 42, 0.12);
@@ -57,9 +57,7 @@ body {
 }
 
 html[data-theme="rpg"] body {
-  background: radial-gradient(900px 520px at 20% 0%, rgba(11, 98, 255, 0.12), transparent 60%),
-    radial-gradient(900px 520px at 90% 10%, rgba(0, 184, 148, 0.10), transparent 60%),
-    var(--bg);
+  background: var(--bg);
 }
 
 /* Subtle film grain */
