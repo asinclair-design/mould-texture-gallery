@@ -17,6 +17,23 @@
   --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
 }
 
+/* Alternate light theme inspired by rpgrouplimited.com */
+html[data-theme="rpg"] {
+  --bg: #f7fafc;
+  --panel: rgba(255, 255, 255, 0.86);
+  --panel2: rgba(255, 255, 255, 0.92);
+  --stroke: rgba(15, 23, 42, 0.12);
+  --stroke2: rgba(15, 23, 42, 0.18);
+  --text: rgba(2, 6, 23, 0.92);
+  --muted: rgba(2, 6, 23, 0.62);
+  --faint: rgba(2, 6, 23, 0.38);
+  --accent: #0b62ff;
+  --accent2: #00b894;
+  --danger: #d90429;
+  --shadow: rgba(2, 6, 23, 0.18);
+  --ring: rgba(11, 98, 255, 0.25);
+}
+
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--text);
@@ -38,6 +55,12 @@ body {
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
 }
 
+html[data-theme="rpg"] body {
+  background: radial-gradient(900px 520px at 20% 0%, rgba(11, 98, 255, 0.12), transparent 60%),
+    radial-gradient(900px 520px at 90% 10%, rgba(0, 184, 148, 0.10), transparent 60%),
+    var(--bg);
+}
+
 /* Subtle film grain */
 body::before {
   content: "";
@@ -47,6 +70,10 @@ body::before {
   background-image: var(--noise);
   mix-blend-mode: overlay;
   opacity: 0.18;
+}
+
+html[data-theme="rpg"] body::before {
+  opacity: 0.08;
 }
 
 ::selection {

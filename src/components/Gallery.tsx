@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 import textures from "@/data/textures.json";
 import { TextureCard } from "@/components/TextureCard";
 import { TextureModal } from "@/components/TextureModal";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { LeadMagnetCTA } from "@/components/LeadMagnetCTA";
 import { cx, seriesLabel } from "@/lib/utils";
 
 type TextureItem = (typeof textures)[number];
@@ -36,43 +38,49 @@ export function Gallery() {
       <header className="pt-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-              <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--accent)]" />
-              Fast, searchable, zoomable
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--stroke)] bg-[var(--panel)] px-3 py-1 text-xs text-[color:var(--muted)]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--accent)]" />
+                Fast, searchable, zoomable
+              </div>
+              <ThemeToggle />
             </div>
-            <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-[1.05] tracking-[-0.02em] text-white md:text-5xl">
+
+            <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-[1.05] tracking-[-0.02em] text-[color:var(--text)] md:text-5xl">
               Mould Texture Gallery
             </h1>
-            <p className="mt-3 max-w-[64ch] text-sm leading-relaxed text-white/65 md:text-base">
+            <p className="mt-3 max-w-[64ch] text-sm leading-relaxed text-[color:var(--muted)] md:text-base">
               Each texture is labelled by its file name. Click any tile to open the
               inspector (preview + magnifier). Use this as a reference when
               specifying surface finishes for prototypes and low-volume builds.
             </p>
 
-            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-white/60">
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-[color:var(--muted)]">
               <a
-                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:bg-white/10"
+                className="rounded-full border border-[var(--stroke)] bg-[var(--panel)] px-3 py-1 hover:bg-[var(--panel2)]"
                 href="mailto:sales@rpgroupltd.com?subject=Mould%20texture%20enquiry"
               >
                 Contact RP Group →
               </a>
               <a
-                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 hover:bg-white/10"
+                className="rounded-full border border-[var(--stroke)] bg-[var(--panel)] px-3 py-1 hover:bg-[var(--panel2)]"
                 href="https://www.rpgroupltd.com"
                 target="_blank"
                 rel="noreferrer"
               >
                 rpgroupltd.com
               </a>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
+              <span className="rounded-full border border-[var(--stroke)] bg-[var(--panel)] px-3 py-1">
                 {items.length} shown
               </span>
             </div>
+
+            <LeadMagnetCTA />
           </div>
 
           <div className="w-full md:w-[420px]">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[0_18px_60px_rgba(0,0,0,0.35)]">
-              <label className="block text-xs font-medium text-white/70">
+            <div className="rounded-2xl border border-[var(--stroke)] bg-[var(--panel)] p-3 shadow-[0_18px_60px_rgba(0,0,0,0.35)]">
+              <label className="block text-xs font-medium text-[color:var(--muted)]">
                 Search by texture ID
               </label>
               <div className="mt-2 flex items-center gap-2">
@@ -81,15 +89,15 @@ export function Gallery() {
                   onChange={(e) => setQ(e.target.value)}
                   placeholder="e.g. JY22040"
                   className={cx(
-                    "w-full rounded-xl border border-white/10 bg-black/30 px-3 py-2 text-sm text-white",
-                    "placeholder:text-white/35",
+                    "w-full rounded-xl border border-[var(--stroke)] bg-black/15 px-3 py-2 text-sm text-[color:var(--text)]",
+                    "placeholder:text-[color:var(--faint)]",
                     "focus:outline-none focus:ring-2 focus:ring-[var(--ring)]"
                   )}
                 />
                 <button
                   type="button"
                   onClick={() => setQ("")}
-                  className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/80 hover:bg-white/10"
+                  className="rounded-xl border border-[var(--stroke)] bg-[var(--panel)] px-3 py-2 text-sm text-[color:var(--muted)] hover:bg-[var(--panel2)]"
                 >
                   Clear
                 </button>
@@ -113,7 +121,7 @@ export function Gallery() {
                 ))}
               </div>
 
-              <div className="mt-3 text-xs text-white/55">
+              <div className="mt-3 text-xs text-[color:var(--faint)]">
                 Tip: the magnifier uses an optimized “full” image (WebP) to keep
                 the page fast.
               </div>
@@ -143,7 +151,7 @@ export function Gallery() {
         }
       />
 
-      <footer className="mt-16 border-t border-white/10 pt-8 text-sm text-white/55">
+      <footer className="mt-16 border-t border-[var(--stroke)] pt-8 text-sm text-[color:var(--muted)]">
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <div>
             © {new Date().getFullYear()} RP Group Limited. Texture IDs shown are
