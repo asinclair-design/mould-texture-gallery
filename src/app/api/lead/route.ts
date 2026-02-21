@@ -17,7 +17,6 @@ export async function POST(req: Request) {
 
   const webhook = process.env.LEADS_WEBHOOK_URL;
   if (!webhook) {
-    // We intentionally don't pretend to store anything server-side without a configured destination.
     return NextResponse.json(
       {
         ok: false,
@@ -46,7 +45,7 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           ok: false,
-          message: `Webhook rejected (${r.status}). ${t.slice(0, 160)}`,
+          message: `Capture endpoint rejected (${r.status}). ${t.slice(0, 160)}`,
         },
         { status: 502 }
       );
@@ -55,7 +54,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true, message: "Sent — check your inbox." });
   } catch (e: any) {
     return NextResponse.json(
-      { ok: false, message: "Failed to reach capture webhook." },
+      { ok: false, message: "Failed to reach capture endpoint." },
       { status: 502 }
     );
   }

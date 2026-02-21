@@ -69,23 +69,23 @@ export function TextureModal({
 
       <div className="absolute inset-x-0 top-4 mx-auto w-[min(1100px,92vw)]">
         <div className="rounded-2xl border border-white/10 bg-white/5 shadow-[0_30px_80px_var(--shadow)]">
-          <div className="flex flex-wrap items-center gap-3 border-b border-white/10 px-4 py-3">
+          <div className="flex flex-wrap items-center gap-3 border-b border-[var(--stroke)] px-4 py-3">
             <div className="min-w-[10rem]">
-              <div className="font-[var(--font-display)] text-[13px] uppercase tracking-[0.18em] text-white/70">
+              <div className="font-[var(--font-display)] text-[13px] uppercase tracking-[0.18em] text-[color:var(--muted)]">
                 Texture
               </div>
-              <div className="text-lg font-semibold text-white">{title}</div>
+              <div className="text-lg font-semibold text-[color:var(--text)]">{title}</div>
             </div>
 
             <div className="ml-auto flex items-center gap-2">
-              <div className="flex items-center rounded-full border border-white/10 bg-white/5 p-1 text-sm">
+              <div className="flex items-center rounded-full border border-[var(--stroke)] bg-[var(--panel)] p-1 text-sm">
                 <button
                   onClick={() => setMode("preview")}
                   className={cx(
                     "rounded-full px-3 py-1 transition",
                     mode === "preview"
-                      ? "bg-white/10 text-white"
-                      : "text-white/70 hover:text-white"
+                      ? "bg-black/10 text-[color:var(--text)]"
+                      : "text-[color:var(--muted)] hover:text-[color:var(--text)]"
                   )}
                 >
                   Preview
@@ -95,8 +95,8 @@ export function TextureModal({
                   className={cx(
                     "rounded-full px-3 py-1 transition",
                     mode === "magnify"
-                      ? "bg-white/10 text-white"
-                      : "text-white/70 hover:text-white"
+                      ? "bg-black/10 text-[color:var(--text)]"
+                      : "text-[color:var(--muted)] hover:text-[color:var(--text)]"
                   )}
                 >
                   Magnify
@@ -104,17 +104,17 @@ export function TextureModal({
               </div>
 
               <a
-                className="hidden sm:inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/85 hover:bg-white/10"
+                className="hidden sm:inline-flex items-center gap-2 rounded-full border border-[var(--stroke)] bg-[var(--panel)] px-4 py-2 text-sm text-[color:var(--muted)] hover:bg-[var(--panel2)]"
                 href={ctaHref}
                 target="_blank"
                 rel="noreferrer"
               >
                 Request this texture
-                <span className="text-white/50">→</span>
+                <span className="text-[color:var(--faint)]">→</span>
               </a>
 
               <a
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/85 hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--stroke)] bg-[var(--panel)] px-4 py-2 text-sm text-[color:var(--muted)] hover:bg-[var(--panel2)]"
                 href={item.src.full}
                 target="_blank"
                 rel="noreferrer"
@@ -127,7 +127,7 @@ export function TextureModal({
                   setMode("preview");
                   onClose();
                 }}
-                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/85 hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--stroke)] bg-[var(--panel)] px-3 py-2 text-sm text-[color:var(--muted)] hover:bg-[var(--panel2)]"
                 aria-label="Close"
               >
                 ✕
@@ -187,19 +187,19 @@ export function TextureModal({
               )}
             </div>
 
-            <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-white/60">
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-                ID: <span className="text-white/85">{item.id}</span>
+            <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-[color:var(--muted)]">
+              <span className="rounded-full border border-[var(--stroke)] bg-[var(--panel)] px-3 py-1">
+                ID: <span className="text-[color:var(--text)]">{item.id}</span>
               </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-                Series: <span className="text-white/85">{item.series}</span>
+              <span className="rounded-full border border-[var(--stroke)] bg-[var(--panel)] px-3 py-1">
+                Series: <span className="text-[color:var(--text)]">{item.series}</span>
               </span>
               {item.width && item.height && (
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-                  Original: <span className="text-white/85">{item.width}×{item.height}</span>
+                <span className="rounded-full border border-[var(--stroke)] bg-[var(--panel)] px-3 py-1">
+                  Original: <span className="text-[color:var(--text)]">{item.width}×{item.height}</span>
                 </span>
               )}
-              <span className="ml-auto text-white/50">
+              <span className="ml-auto text-[color:var(--faint)]">
                 Tip: Link to this texture for SEO.
               </span>
             </div>
