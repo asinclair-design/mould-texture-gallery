@@ -42,6 +42,15 @@ export default function GuidePage() {
       </div>
 
       <article className="prose-custom space-y-10">
+        {/* Hero image */}
+        <div className="overflow-hidden rounded-2xl border border-[var(--stroke)]">
+          <img
+            src="/guide/section-01.webp"
+            alt="Close-up of textured mould steel surface showing leather grain pattern"
+            className="w-full h-auto"
+          />
+        </div>
+
         {/* Section 1 */}
         <Section num="01" title="Why Texture Specification Matters">
           <p>
@@ -114,6 +123,14 @@ DRAFT ANGLE: minimum [X.X]° on textured faces`}
           </Callout>
         </Section>
 
+        <div className="overflow-hidden rounded-2xl border border-[var(--stroke)]">
+          <img
+            src="/guide/section-02.webp"
+            alt="Modern injection moulding facility producing automotive parts"
+            className="w-full h-auto"
+          />
+        </div>
+
         {/* Section 3 */}
         <Section num="03" title="Common Texture Standards">
           <div className="grid gap-3 md:grid-cols-2">
@@ -176,6 +193,14 @@ DRAFT ANGLE: minimum [X.X]° on textured faces`}
           </div>
         </Section>
 
+        <div className="overflow-hidden rounded-2xl border border-[var(--stroke)]">
+          <img
+            src="/guide/section-04.webp"
+            alt="Engineers examining a prototype automotive trim part for texture quality"
+            className="w-full h-auto"
+          />
+        </div>
+
         {/* Section 5 */}
         <Section num="05" title="Quick DFM Questions That Save Weeks">
           <p>
@@ -218,6 +243,14 @@ DRAFT ANGLE: minimum [X.X]° on textured faces`}
             committing to production texture, talk to us.
           </Callout>
         </Section>
+
+        <div className="overflow-hidden rounded-2xl border border-[var(--stroke)]">
+          <img
+            src="/guide/section-03.webp"
+            alt="Technical diagram showing draft angle requirements on textured part walls"
+            className="w-full h-auto"
+          />
+        </div>
 
         {/* Section 6 */}
         <Section num="06" title="Texture Depth vs. Draft Angle Quick Reference">
@@ -266,6 +299,14 @@ DRAFT ANGLE: minimum [X.X]° on textured faces`}
             </table>
           </div>
         </Section>
+
+        <div className="overflow-hidden rounded-2xl border border-[var(--stroke)]">
+          <img
+            src="/guide/section-05.webp"
+            alt="Comparison of polished vs chemical-etched textured mould steel surfaces"
+            className="w-full h-auto"
+          />
+        </div>
 
         {/* Section 7 */}
         <Section num="07" title="Next Steps">
